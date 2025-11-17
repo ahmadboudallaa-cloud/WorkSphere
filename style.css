@@ -1,0 +1,149 @@
+body{
+    background-color: black;
+    font-family: 'Inter';
+}
+
+.container{
+    background-color: white;
+    height:670px ;
+    width:1450px ;
+    margin:auto;
+    border-radius: 50px;
+  box-shadow: 0 0 7px white;
+
+  display: flex;
+  
+ 
+}
+main{
+    width: 100%;
+   
+}
+.side-bar{
+   
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #14213D;
+    border-radius: 50px 0 0 50px;
+    
+   
+    
+    
+    
+
+
+}
+.side-bar h1{
+    font-size: 45px;
+    color: white;
+   font-weight: 800;
+   margin-bottom: 5px;
+   
+}
+.side-bar h2{
+    font-size: 20px;
+    font-weight: lighter ;
+    color: white;
+    margin-top: 5px;
+ 
+    
+
+}
+.side-bar button{
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 70px;
+    background-color: #FCA311;
+    
+}
+.tres1{
+    background-color: #FCA311;
+    width: 80%;
+    height: 3px;
+    margin-top: 15px;
+}
+.plan-etage{ 
+    width: 100%;
+    height: 20%;
+    border-radius: 0 50px 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.plan-etage h1{
+    color: black;
+    text-align: center;
+   font-size: 40px;
+   margin-top: 5px;
+   
+    
+
+
+}
+.tres2{
+    background-color: black;
+    width: 50%;
+    height: 3px;
+    margin-top: 15px;
+}
+.salle{
+    width: 31%;
+    height: 220px;
+    background-color: #14213D;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.tres3{
+    width: 80%;
+    height: 1px;
+    background-color: white;
+}
+.salle h1{
+
+    font-size: 20px;
+    color: white;
+
+
+}
+
+.salle button{
+    
+border-radius: 100%;
+background-color: #FCA311;
+font-size: 25px;
+margin-left: 85%;
+margin-bottom: 8px;
+
+
+}
+.titre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   
+    
+}
+.zone{
+    margin: 20px 0;
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 5px;
+   
+
+   
+   
+
+}
