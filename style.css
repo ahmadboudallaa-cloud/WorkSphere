@@ -1,28 +1,36 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
 body{
     background-color: black;
     font-family: 'Inter';
+    display: flex;
+    justify-content: center;
+   margin: 15px;
+   
 }
+
 
 .container{
+    display: flex;
     background-color: white;
-    height:670px ;
-    width:1450px ;
-    margin:auto;
+    height:96vh ;
+    width:95% ;
     border-radius: 50px;
   box-shadow: 0 0 7px white;
-
-  display: flex;
-  
- 
+  margin: 20px; 
+  padding: 0;
 }
 main{
+   
     width: 100%;
    
 }
 .side-bar{
-   
-    height: 100%;
-    width: 25%;
+    height: auto;
+    width: 23%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,33 +45,36 @@ main{
 
 }
 .side-bar h1{
-    font-size: 45px;
+    font-size: 35px;
     color: white;
    font-weight: 800;
-   margin-bottom: 5px;
+   margin: 10px 0;
    
 }
 .side-bar h2{
     font-size: 20px;
     font-weight: lighter ;
     color: white;
-    margin-top: 5px;
+    margin-bottom: 10px;
+    
  
     
 
 }
 .side-bar button{
     padding: 10px;
-    font-size: 25px;
+    font-size: 15px;
     border-radius: 70px;
     background-color: #FCA311;
+    margin-bottom: 30px;
     
 }
 .tres1{
     background-color: #FCA311;
     width: 80%;
     height: 3px;
-    margin-top: 15px;
+    margin-bottom: 15px;
+    
 }
 .plan-etage{ 
     width: 100%;
@@ -91,13 +102,13 @@ main{
     margin-top: 15px;
 }
 .salle{
-    width: 31%;
+    width: 100%;
     height: 220px;
     background-color: #14213D;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    
     align-items: center;
     justify-content: space-between;
 
@@ -124,26 +135,131 @@ margin-left: 85%;
 margin-bottom: 8px;
 
 
+
 }
 .titre{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 20px;
+    padding-top: 10px;
    
     
 }
 .zone{
-    margin: 20px 0;
+    
    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px 5px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
    
-
-   
+    gap: 10px;
+     margin: 0 10px;
    
 
 }
+
+@media(max-width:767px){
+    .container{
+        width:100%;
+        flex-direction:column;
+        height:100%;
+        align-items: center;
+     
+       
+    }
+    .side-bar{
+      height:100%;
+        width:100%;
+        border-radius:40px;
+        
+        
+    }
+   
+    .zone{
+        
+        grid-template-columns: repeat(1,1fr);
+        margin: 10px;
+
+    }
+    .salle{
+        width:100% ;
+    }
+   
+   
+    
+    
+}
+
+@media(min-width: 768px) and (max-width: 1023px){
+
+  .container{
+     width:100%;
+     height:100%;
+     align-items: flex-start;
+    
+
+    
+    
+   
+    
+     
+    
+  }
+  .side-bar{
+    height: 115vh;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .side-bar h1{
+    font-size: 20px;
+    
+  }
+  .side-bar h2{
+    font-size: 15px;
+  }
+  .side-bar button{
+    font-size: 10px;
+  }
+  .zone{
+    padding: 20px 0;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+}
+@media(min-width: 1024px) and (max-width: 1279px){
+
+    .side-bar h1{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .side-bar h2{
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
