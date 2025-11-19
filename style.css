@@ -133,6 +133,7 @@ background-color: #FCA311;
 font-size: 25px;
 margin-left: 85%;
 margin-bottom: 8px;
+width: 30px;
 
 
 
@@ -169,6 +170,7 @@ margin-bottom: 8px;
      
        
     }
+
     .side-bar{
       height:100%;
         width:100%;
@@ -187,28 +189,17 @@ margin-bottom: 8px;
         width:100% ;
     }
    
-   
     
     
 }
 
 @media(min-width: 768px) and (max-width: 1023px){
-body{
-   
-}
+
   .container{
      width:100%;
      height:100%;
      align-items: flex-start;
-    
-    
-
-    
-    
    
-    
-     
-    
   }
   .side-bar{
     height: 135vh;
@@ -225,6 +216,7 @@ body{
   .side-bar button{
     font-size: 10px;
   }
+ 
   .zone{
     padding: 20px 0;
     grid-template-columns: repeat(2,1fr);
