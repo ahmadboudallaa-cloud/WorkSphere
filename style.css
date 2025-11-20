@@ -290,7 +290,7 @@ border: transparent;
     border-radius: 50px;
     padding-left: 10px;
 }
-#liste_role{
+#role{
      width: 100%;
     height: 40px;
     border-radius: 50px;
@@ -366,12 +366,12 @@ padding: 8px;
 }
 
 
-.photo{
+.photo-info{
    margin-top: 5px;
     display: flex;
     justify-content: center;
 }
-.photo img{
+.photo-info img{
     width: 150px;
     height: 150px;
     border-radius: 100%;
@@ -428,20 +428,20 @@ flex-direction: column;
 gap: 8px;
 
 }
-.role{
+.role-info{
 
 display: flex;
 flex-direction: column;
 gap: 8px;
 }
 
-.mail{
+.mail-info{
   display: flex;
 flex-direction: column;
 gap: 8px;
 }
 
-.tel{
+.tel-info{
  
 display: flex;
 flex-direction: column;

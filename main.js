@@ -3,9 +3,15 @@ const container2 = document.getElementById('container2');
 const close = document.getElementById('close');
 const closex = document.getElementById('closex');
 const closex2 = document.getElementById('closex2');
+
 let enrgEmp = document.getElementById('enregistrer')
+let nom = document.getElementById('')
+
+
 const openInfo  = document.getElementById('btn_info');
 const container_3 = document.getElementById('container_3');
+
+
 
 
 openInfo.addEventListener('click', () =>{
