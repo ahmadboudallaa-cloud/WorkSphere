@@ -4,7 +4,6 @@ const close = document.getElementById('close');
 const closex = document.getElementById('closex');
 
 
-
 ajouter.addEventListener('click', () =>{
 
 container2.classList.add('show')
@@ -27,3 +26,5 @@ closex.addEventListener('click', () =>{
 
 
 }) ;
+
+
