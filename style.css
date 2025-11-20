@@ -7,7 +7,8 @@ body{
     background-color: black;
     font-family: 'Inter';
     display: flex;
-    justify-content: center;
+   
+    
    
    
 }
@@ -18,10 +19,12 @@ body{
     background-color: white;
     height:96vh ;
     width:95% ;
-    border-radius: 50px;
-  box-shadow: 0 0 7px white;
-  margin: 20px; 
-  padding: 0;
+    border-radius:0 50px 50px 0;
+    margin: 20px ; 
+    padding: 0;
+    margin-left: 0;
+  
+   
 }
 main{
    
@@ -36,7 +39,8 @@ main{
     align-items: center;
     background-color: #14213D;
     border-radius: 50px 0 0 50px;
-    
+    margin: 20px 0 20px 20px;
+   
    
     
     
@@ -61,12 +65,13 @@ main{
     
 
 }
-.side-bar button{
+.btn_sd{
     padding: 10px;
     font-size: 15px;
     border-radius: 70px;
     background-color: #FCA311;
     margin-bottom: 30px;
+    border: transparent;
     
 }
 .tres1{
@@ -134,6 +139,7 @@ font-size: 25px;
 margin-left: 85%;
 margin-bottom: 8px;
 width: 30px;
+border: transparent;
 
 
 
@@ -159,23 +165,183 @@ width: 30px;
    
 
 }
+.employe{
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #324876;
+    border-radius: 30px;
+    padding: 10px;
+   
+    
+    
+}
+.employe img{
+    height: 50px;
+    border-radius: 100%;
+}
+.info_employe h2{
+    font-weight: bold;
+
+  font-size: 15px;
+    
+}
+.info_employe h3{
+    font-size: 15px;
+    background-color: #7591A3;
+    text-align: center;
+    width: 80px;
+    border-radius: 20px;
+
+}
+.btn_edit{
+    color:#FCA311;
+    font-weight: bold;
+    font-size: 15px;
+   background:transparent;
+   border: transparent;
+  
+    
+}
+.tous-les-employe{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+     
+    
+}
+
+
+.container2{
+    background-color: rgba(4, 0, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   position: fixed;
+   opacity: 0;
+   pointer-events: none;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100vw;
+   transition: opacity 0.3s ease;
+}
+.container2.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.card{
+    background-color:white;
+     display: flex;
+     box-shadow: 0 2px 8px rgb(0, 0, 0);
+     flex-direction: column;
+     width:450px ;
+     height: 600px;
+     text-align: center;
+    
+    
+  
+}
+.tete{
+    background-color: #14213D;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 8px;
+}
+.tete h1{
+    font-size: 25px;
+    color: aliceblue;
+}
+#closex{
+    height:40px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: #FCA311;
+}
+.input_employe {
+    text-align: left;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   gap: 15px;
+
+  
+}
+.input_employe h1{
+    
+    margin: 5px;
+
+    font-size: 25px;
+}
+.input_employe input{
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    padding-left: 10px;
+}
+#liste_role{
+     width: 100%;
+    height: 40px;
+    border-radius: 50px;
+   
+}
+.btn-ajouter-et-annuler{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 20px;
+
+
+
+}
+#close{
+    background-color: #1d1e2287;
+    border: none;
+    font-size: 20px;
+    border-radius: 20px;
+    color: black;
+    padding: 8px;
+}
+.enregistrer{
+font-size: 18px;
+background-color: #14213D;
+color: #FCA311;
+border-radius: 20px;
+padding: 8px;
+}
+
+
 
 @media(max-width:767px){
+    body{
+        flex-direction: column;
+    align-items: center;
+    }
     .container{
-        width:100%;
+        width:95%;
         flex-direction:column;
         height:100%;
         align-items: center;
-        margin: 10px;
+       border-radius:0 0 40px 40px;
+       margin: 0 0 20px 0;
+      
      
        
     }
 
     .side-bar{
       height:100%;
-        width:100%;
-        border-radius:40px;
-        
+        width:95%;
+        border-radius:40px 40px 0px 0;
+        margin:20px 0 0 0;
+       
+       
         
     }
    
@@ -187,6 +353,24 @@ width: 30px;
     }
     .salle{
         width:100% ;
+    }
+    .employe{
+        flex-direction: column;
+        width: 100px;
+        margin-bottom: 10px;
+
+    }
+    .employe h2{
+
+        text-align: center;
+        
+    }
+    .btn_edit{
+        margin-top: 5px;
+    }
+    .tous-les-employe{
+        flex-direction: row;
+        justify-content: center;
     }
    
     
@@ -236,7 +420,14 @@ width: 30px;
     .side-bar h2{
         font-size: 15px;
     }
-
+    .employe{
+        align-items: center;
+        
+    }
+    .employe h2{
+        text-align: center;
+    }
+    
 }
 @media(min-width:1280px){
     .side-bar h1{

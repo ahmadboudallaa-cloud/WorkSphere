@@ -8,16 +8,84 @@
     <title>WorkSphere</title>
 </head>
 <body>
-    <section class="container">
-
     <div class="side-bar">
         <h1>WorkSphere</h1>
         <h2>Gestion du Personnel</h2>
-        <button>+ Ajouter un employé</button>
+        <button class="btn_sd" id="Ajouter">+ Ajouter un employé</button>
         <div class="tres1"></div>
         <h2>Employés non assignés:</h2>
+      
+       <div class="tous-les-employe">
+        <!-- <div class="employe">
+            <img src="img/icon.perso.png" alt="">
+            <div class="info_employe">
+            <h2>ahmed Boudallaa</h2>
+            <h3>Manager</h3>
+            </div>
+           
+            <button class="btn_edit">Edit</button>
+         
+        </div> -->
+   
+        </div>
+        
     </div>
 
+
+<div class="container2" id="container2">
+    <div class="card">
+        <div class="tete">
+            <h1>Ajouter un employé</h1>
+            <button id="closex">x</button>
+        </div>
+
+        <div class="input_employe">
+            <div class="nom">
+            <h1>Nom complet</h1>
+            <input type="text" placeholder="ex:Ahmed Boudallaa">
+            </div>
+            <div class="role">
+                <h1>Role</h1>
+                <select name="liste_role" id="liste_role" >
+                    <option value="null">Sélectionnez un role</option>
+                    <option value="">Réceptionnistes </option>
+                    <option value="">Techniciens IT </option>
+                    <option value=""> Agents de sécurité </option>
+                    <option value="">Manager </option>
+                    <option value="">Agents de nettoyage </option>
+                    <option value="">Autres roles </option>
+
+                </select>
+
+            </div>
+            <div class="photo">
+                <h1>Photo URL</h1>
+                <input type="lien" placeholder="https://site.com/photo.jpg">
+
+            </div>
+            <div class="mail">
+                <h1>E-mail</h1>
+                <input type="email" name="mail" id="mail" placeholder="info@gmail.com">
+
+            </div>
+            <div class="tel">
+                <h1>Téléphone</h1>
+                <input type="tel" placeholder="+212 777777777">
+
+            </div>
+
+        </div>
+       <div class="btn-ajouter-et-annuler">
+        <button id="close"> annuler</button>
+        <button class="enregistrer">Enregistrer</button>
+     </div> 
+    </div>
+ </div>
+
+
+
+
+    <section class="container">
 
   <main>
     <section class="plan-etage">
@@ -34,6 +102,7 @@
             
             <button>+</button>
         </div>
+        
          <div class="salle ">
             <div class="titre">
             <h1>Réception</h1>
