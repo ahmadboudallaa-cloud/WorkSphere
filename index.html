@@ -20,7 +20,7 @@
         <h2>Employés non assignés:</h2>
 
         <div class="tous-les-employe">
-            <!-- <div class="employe">
+            <div class="employe">
             <img src="img/icon.perso.png" alt="">
             <div class="info_employe">
             <h2>ahmed Boudallaa</h2>
@@ -28,8 +28,10 @@
             </div>
            
             <button class="btn_edit">Edit</button>
+            <button id="btn_info">info</button>
+
          
-        </div> -->
+        </div>
         
 
         </div>
@@ -47,11 +49,11 @@
             <div class="input_employe">
                 <div class="nom">
                     <h1>Nom complet</h1>
-                    <input type="text" placeholder="ex:Ahmed Boudallaa">
+                    <input id="nom" type="text" placeholder="ex:Ahmed Boudallaa">
                 </div>
                 <div class="role">
                     <h1>Role</h1>
-                    <select name="liste_role" id="liste_role">
+                    <select id="role" name="liste_role" id="liste_role">
                         <option value="null">Sélectionnez un role</option>
                         <option value="">Réceptionnistes </option>
                         <option value="">Techniciens IT </option>
@@ -65,17 +67,17 @@
                 </div>
                 <div class="photo">
                     <h1>Photo URL</h1>
-                    <input type="lien" placeholder="https://site.com/photo.jpg">
+                    <input id="photo" type="lien" placeholder="https://site.com/photo.jpg">
 
                 </div>
                 <div class="mail">
                     <h1>E-mail</h1>
-                    <input type="email" name="mail" id="mail" placeholder="info@gmail.com">
+                    <input id="mail" type="email" name="mail" id="mail" placeholder="info@gmail.com">
 
                 </div>
                 <div class="tel">
                     <h1>Téléphone</h1>
-                    <input type="tel" placeholder="+212 777777777">
+                    <input id="tel" type="tel" placeholder="+212 777777777">
 
                 </div>
 
@@ -90,13 +92,13 @@
                 <div class="info-experience" id="info_experience">
                      <!-- <div class="tres-exp"></div> -->
                     <h1>Nom d'entreprise</h1>
-                    <input type="text" placeholder="Nom d'entreprise">
+                    <input id="entreprise" type="text" placeholder="Nom d'entreprise">
                     <h1>Poste</h1>
-                    <input type="text" placeholder="votre poste dans l'entreprise">
+                    <input id="poste" type="text" placeholder="votre poste dans l'entreprise">
                     <h1>Date d'ébut</h1>
-                    <input type="date">
+                    <input id="dateDeb" type="date">
                     <h1>Date de sortie</h1>
-                    <input type="date">
+                    <input id="dateFin" type="date">
     
                 </div>
 
@@ -104,10 +106,56 @@
             </div>
             <div class="btn-ajouter-et-annuler">
                 <button id="close"> annuler</button>
-                <button class="enregistrer">Enregistrer</button>
+                <button class="enregistrer" id="enregistrer" >Enregistrer</button>
             </div>
         </div>
     </div>
+
+    
+
+<div class="container-3" id="container_3">
+    <div class="card-2">
+        <div class="titre-card">
+            <h1>Info d'employe</h1>
+            <button id="closex2">x</button>
+        </div>
+
+        <div class="input_info_employe">
+
+            <div class="photo">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHz68HExqPKEqVMmZLJ7uQUU71zkuD0rr9bg&s" alt="">
+            
+            </div>
+
+            <div class="nom-complet">
+            <h1>Nom complet:</h1>
+            <p>ahmed boudallaa</p>
+            </div>
+            <div class="role">
+                <h1>Role:</h1>
+                <p>Manager</p>
+
+            </div>
+            
+
+            
+            <div class="mail">
+                <h1>E-mail:</h1>
+                <p>azertyui@gmail.com</p>
+
+            </div>
+            <div class="tel">
+                <h1>Téléphone:</h1>
+                <p>+212 706809988</p>
+
+            </div>
+
+        </div>
+       
+        
+    </div>
+ </div>
+    
 
 
 

@@ -357,6 +357,135 @@ padding: 8px;
     margin: 15px auto;
 
 }
+#btn_info{
+    color:#FCA311;
+    font-weight: bold;
+    font-size: 15px;
+   background:transparent;
+   border: transparent; 
+}
+
+
+.photo{
+   margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+.photo img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: solid 5px #14213D;
+}
+
+
+.container-3{
+    background-color: rgba(4, 0, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   position: fixed;
+   opacity: 0;
+   pointer-events: none;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100vw;
+   transition: opacity 0.3s ease;
+}
+.container-3.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.card-2{
+    background-color:white;
+     display: flex;
+     box-shadow: 0 2px 8px rgb(0, 0, 0);
+     flex-direction: column;
+     width:450px ;
+     height: 600px;
+     text-align: center;
+    
+    
+  
+}
+.titre-card{
+    background-color: #14213D;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 8px;
+}
+.titre-card h1{
+    font-size: 25px;
+    color: aliceblue;
+}
+
+.nom-complet{
+
+display: flex;
+flex-direction: column;
+gap: 8px;
+
+}
+.role{
+
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.mail{
+  display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.tel{
+ 
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+
+#closex{
+    height:40px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: #FCA311;
+}
+.input_info_employe {
+    display: flex;
+    flex-direction: column;
+   
+   gap: 25px;
+
+  
+}
+.input_info_employe h1{
+    margin: 0;
+   font-size: 25px;
+   color:#14213D;
+}
+.input_info_employe p{
+   
+  font-weight: bold;
+  margin: 0;
+   font-size: 25px; 
+}
+#closex2{
+    
+    height:40px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: #FCA311;
+}
+
+
+
 
 
 
@@ -419,7 +548,7 @@ padding: 8px;
         flex-direction: row;
         justify-content: center;
         height:30vh;
-        width:;
+        width:100%;
         overflow-x: auto;
        
         
