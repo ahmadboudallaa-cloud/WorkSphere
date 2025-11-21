@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>WorkSphere</title>
 </head>
@@ -20,27 +17,11 @@
         <h2>Employés non assignés:</h2>
 
         <div id="tous_les_employe">
-            <div class="employe">
-            <img src="img/icon.perso.png" alt="">
-            <div class="info_employe">
-            <h2>ahmed</h2>
-            <h3>manager</h3>
-            </div>
-            <div class="btn-edit-info-delet">
-            <button id="btn_info">info</button>
-            <button id="btn_edit">Edit</button>
-            <button id="btn_delet">delet</button>
-            </div>
-         
+            
         </div>
-    
-        
-
-        </div>
-
     </div>
 
-
+ 
     <div class="container2" id="container2">
         <div class="card">
             <div class="tete">
@@ -51,207 +32,127 @@
             <div class="input_employe">
                 <div class="nom">
                     <h1>Nom complet</h1>
-                    <input id="nom" type="text" placeholder="ex:Ahmed Boudallaa">
+                    <input id="nom" type="text" placeholder="ex: Ahmed Boudallaa">
                 </div>
                 <div class="role">
                     <h1>Role</h1>
                     <select id="role" name="liste_role">
                         <option value="null">Sélectionnez un role</option>
-                        <option value="Réceptionnistes">Réceptionnistes </option>
-                        <option value="Techniciens IT">Techniciens IT </option>
-                        <option value="Agents de sécurité"> Agents de sécurité </option>
-                        <option value="Manager">Manager </option>
-                        <option value="Agents de nettoyage">Agents de nettoyage </option>
-                        <option value="Autres roles">Autres roles </option>
-
+                        <option value="Réceptionnistes">Réceptionnistes</option>
+                        <option value="Techniciens IT">Techniciens IT</option>
+                        <option value="Agents de sécurité">Agents de sécurité</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Agents de nettoyage">Agents de nettoyage</option>
+                        <option value="Autres roles">Autres roles</option>
                     </select>
-
                 </div>
                 <div class="photo">
                     <h1>Photo URL</h1>
-                    <input id="photo" type="lien" placeholder="https://site.com/photo.jpg">
-
+                    <input id="photo" type="text" placeholder="https://site.com/photo.jpg">
+                    <div class="photo-preview" id="photoPreview"></div>
                 </div>
                 <div class="mail">
                     <h1>E-mail</h1>
-                    <input id="mail" type="email" name="mail" id="mail" placeholder="info@gmail.com">
-
+                    <input id="mail" type="email" placeholder="info@gmail.com">
                 </div>
                 <div class="tel">
                     <h1>Téléphone</h1>
                     <input id="tel" type="tel" placeholder="+212 777777777">
-
                 </div>
 
                 <div class="experience">
-                    <div class="titre-experience">
-                        <h1>Experiences Professionnelle</h1>
-                        <button id="ajouter_experience">Ajouter</button>
-                            
-                    </div>
-
-                </div>
-                <div class="info-experience" id="info_experience">
-                     <!-- <div class="tres-exp"></div> -->
-                    <h1>Nom d'entreprise</h1>
-                    <input id="entreprise" type="text" placeholder="Nom d'entreprise">
-                    <h1>Poste</h1>
-                    <input id="poste" type="text" placeholder="votre poste dans l'entreprise">
-                    <h1>Date d'ébut</h1>
-                    <input id="dateDeb" type="date">
-                    <h1>Date de sortie</h1>
-                    <input id="dateFin" type="date">
+    <div class="titre-experience">
+        <h1>Experiences Professionnelle</h1>
+        <button type="button" id="ajouter_experience">Ajouter</button>
+    </div>
+</div>
+<div class="info-experience" id="info_experience">
     
-                </div>
-
-
+</div>
             </div>
             <div class="btn-ajouter-et-annuler">
-                <button id="close"> annuler</button>
-                <button class="enregistrer" id="enregistrer" >Enregistrer</button>
+                <button id="close">Annuler</button>
+                <button class="enregistrer" id="enregistrer">Enregistrer</button>
             </div>
         </div>
     </div>
 
     
-
-<div class="container-3" id="container_3">
-    <div class="card-2">
-        <div class="titre-card">
-            <h1>Info d'employe</h1>
-            <button id="closex2">x</button>
-        </div>
-
-        <div class="input_info_employe">
-
-            <div class="photo-info">
-               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHz68HExqPKEqVMmZLJ7uQUU71zkuD0rr9bg&s" alt="">
-            
-            </div>
-
-            <div class="nom-complet">
-            <h1>Nom complet:</h1>
-            <p>ahmed boudallaa</p>
-            </div>
-            <div class="role-info">
-                <h1>Role:</h1>
-                <p>Manager</p>
-
-            </div>
-            
-
-            
-            <div class="mail-info">
-                <h1>E-mail:</h1>
-                <p>azertyui@gmail.com</p>
-
-            </div>
-            <div class="tel-info">
-                <h1>Téléphone:</h1>
-                <p>+212 706809988</p>
-
-            </div>
-            <div class="experience-info">
-             <div class="titre-experience">Experience</div>
-          <h1>Enreprise:</h1>
-          <p>mimir</p>
-          <h1>Poste:</h1>
-          <p>manager</p>
-          <h1>date debut:</h1>
-          <p>21/10/2010</p>
-          <h1>date fin:</h1>
-          <p>21/10/2015</p>
-
-
-            </div>
-
-        </div>
-       
+    <div class="container-3" id="container_3">
         
     </div>
- </div>
+
     
-
-
-
-
     <section class="container">
-
         <main>
             <section class="plan-etage">
                 <h1>Plan d'Étage</h1>
                 <div class="tres2"></div>
-
             </section>
             <section class="zone">
-                <div class="salle ">
+                <div class="salle" data-salle="salle-conference">
                     <div class="titre">
                         <h1>Salle de conférence</h1>
+                        <div class="capacite">Max: 10 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/10)</button>
+                    <div class="employes-salle"></div>
                 </div>
 
-                <div class="salle ">
+                <div class="salle" data-salle="reception">
                     <div class="titre">
                         <h1>Réception</h1>
+                        <div class="capacite">Max: 10 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/10)</button>
+                    <div class="employes-salle"></div>
                 </div>
-                <div class="salle ">
+
+                <div class="salle" data-salle="salle-serveurs">
                     <div class="titre">
                         <h1>Salle des serveurs</h1>
+                        <div class="capacite">Max: 3 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/3)</button>
+                    <div class="employes-salle"></div>
                 </div>
-                <div class="salle ">
+
+                <div class="salle" data-salle="salle-securite">
                     <div class="titre">
                         <h1>Salle de sécurité</h1>
+                        <div class="capacite">Max: 2 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/2)</button>
+                    <div class="employes-salle"></div>
                 </div>
-                <div class="salle ">
+
+                <div class="salle" data-salle="salle-personnel">
                     <div class="titre">
                         <h1>Salle du personnel</h1>
+                        <div class="capacite">Max: 8 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/8)</button>
+                    <div class="employes-salle"></div>
                 </div>
-                <div class="salle ">
+
+                <div class="salle" data-salle="salle-archives">
                     <div class="titre">
-                        <h1>Salle d’archives</h1>
+                        <h1>Salle d'archives</h1>
+                        <div class="capacite">Max: 2 pers.</div>
                         <div class="tres3"></div>
                     </div>
-
-                    <button>+</button>
+                    <button class="btn-assigner">+ (0/2)</button>
+                    <div class="employes-salle"></div>
                 </div>
-
-
-
             </section>
-
         </main>
-
-
-
-
-
-
-
-
     </section>
 
-
     <script src="main.js"></script>
-
 </body>
-
 </html>
