@@ -1,3 +1,4 @@
+// Configuration des salles
 const sallesConfig = {
     'salle-conference': { 
         nom: 'Salle de conférence', 
@@ -31,8 +32,10 @@ const sallesConfig = {
     }
 };
 
+// Photo par défaut
 const DEFAULT_PHOTO = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlsFAzBV-hQgLpJydoIb3NfWraLprFKW0fA&s";
 
+// Données des employés
 let dataEmploye = [];
 let employesAssignes = {
     'salle-conference': [],
@@ -47,6 +50,7 @@ let mode = "create";
 let tempIndex;
 let experienceCount = 0;
 
+// Éléments DOM
 const ajouter = document.getElementById('Ajouter');
 const container2 = document.getElementById('container2');
 const close = document.getElementById('close');
@@ -61,30 +65,38 @@ const tel = document.getElementById('tel');
 const btnExperience = document.getElementById('ajouter_experience');
 const infoExperience = document.getElementById('info_experience');
 
+// Initialisation
 document.addEventListener('DOMContentLoaded', function() {
     initialiserApp();
 });
 
 function initialiserApp() {
+    // Événements pour les modals
     ajouter.onclick = () => ouvrirModalAjout();
     close.onclick = () => fermerModalAjout();
     closex.onclick = () => fermerModalAjout();
     
+    // Événement pour l'ajout d'expérience
     if (btnExperience && infoExperience) {
         btnExperience.addEventListener('click', ajouterExperience);
     }
     
+    // Prévisualisation de la photo
     photo.addEventListener('input', function() {
         previewPhoto(this.value);
     });
     
+    // Initialiser les salles
     initialiserSalles();
     
+    // Afficher les données
     voirData();
     updateAffichageSalles();
 }
 
-
+// --------------------------------------------------------------------
+// GESTION DES EXPÉRIENCES
+// --------------------------------------------------------------------
 
 function ajouterExperience() {
     experienceCount++;
@@ -154,7 +166,9 @@ function clearExperiences() {
     experienceCount = 0;
 }
 
-
+// --------------------------------------------------------------------
+// GESTION DES MODALS
+// --------------------------------------------------------------------
 
 function ouvrirModalAjout() {
     container2.classList.add("show");
@@ -176,31 +190,38 @@ function previewPhoto(url) {
     }
 }
 
-
+// --------------------------------------------------------------------
+// VALIDATION
+// --------------------------------------------------------------------
 
 function validerFormulaire() {
+    // Validation du nom
     if (!nom.value.trim()) {
         alert("Veuillez entrer le nom complet");
         return false;
     }
     
+    // Validation du rôle
     if (role.value === "null") {
         alert("Veuillez sélectionner un rôle");
         return false;
     }
     
+    // Validation de l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (mail.value && !emailRegex.test(mail.value)) {
         alert("Veuillez entrer un email valide");
         return false;
     }
     
+    // Validation du téléphone
     const telRegex = /^[\+]?[0-9\s\-\(\)]{8,20}$/;
     if (tel.value && !telRegex.test(tel.value)) {
         alert("Veuillez entrer un numéro de téléphone valide");
         return false;
     }
     
+    // Validation des dates d'expérience
     const groupesExperience = document.querySelectorAll('.experience-groupe');
     for (let groupe of groupesExperience) {
         const dateDeb = groupe.querySelector('.dateDeb').value;
@@ -219,7 +240,9 @@ function validerFormulaire() {
     return true;
 }
 
-
+// --------------------------------------------------------------------
+// GESTION DES EMPLOYÉS (CRUD)
+// --------------------------------------------------------------------
 
 enrgEmp.onclick = function() {
     if (!validerFormulaire()) return;
@@ -245,6 +268,7 @@ enrgEmp.onclick = function() {
     
     fermerModalAjout();
     voirData();
+    updateAffichageSalles();
 };
 
 function clearData() {
@@ -292,6 +316,7 @@ function deleteData(i) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet employé ?")) {
         const employeId = dataEmploye[i].id;
         
+        // Retirer l'employé de toutes les salles
         for (const salleId in employesAssignes) {
             employesAssignes[salleId] = employesAssignes[salleId].filter(emp => emp.id !== employeId);
         }
@@ -314,6 +339,7 @@ function editData(i) {
     mail.value = emp.mail;
     tel.value = emp.tel;
     
+    // Charger les expériences
     clearExperiences();
     if (emp.experiences && emp.experiences.length > 0) {
         emp.experiences.forEach(exp => {
@@ -390,3 +416,152 @@ function showInfo(i) {
     container_3.classList.add("show");
 }
 
+// --------------------------------------------------------------------
+// GESTION DES SALLES ET ASSIGNATION
+// --------------------------------------------------------------------
+
+function initialiserSalles() {
+    const boutonsAssigner = document.querySelectorAll('.btn-assigner');
+    boutonsAssigner.forEach(bouton => {
+        bouton.addEventListener('click', function() {
+            const salleId = this.closest('.salle').dataset.salle;
+            ouvrirModalAssignation(salleId);
+        });
+    });
+}
+
+function ouvrirModalAssignation(salleId) {
+    const salle = sallesConfig[salleId];
+    const employesDansSalle = employesAssignes[salleId];
+    const employesDisponibles = dataEmploye.filter(emp => 
+        !Object.values(employesAssignes).flat().some(empAssign => empAssign.id === emp.id)
+    );
+    
+    let modalHTML = `
+        <div class="modal-overlay" id="modalAssignation">
+            <div class="modal-assignation">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Assigner des employés - ${salle.nom}</h2>
+                        <button onclick="fermerModalAssignation()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="liste-employes">
+                            <h3>Employés disponibles (${employesDisponibles.length})</h3>
+    `;
+    
+    if (employesDisponibles.length === 0) {
+        modalHTML += '<p style="text-align: center; color: #666; padding: 20px;">Aucun employé disponible</p>';
+    } else {
+        employesDisponibles.forEach(emp => {
+            const estCompatible = salle.roles.includes(emp.role);
+            modalHTML += `
+                <div class="employe-item">
+                    <img src="${emp.photo}" alt="${emp.nom}" onerror="this.src='${DEFAULT_PHOTO}'">
+                    <span>${emp.nom} - ${emp.role}</span>
+                    <button onclick="assignerEmploye('${salleId}', ${dataEmploye.findIndex(e => e.id === emp.id)})" 
+                            ${!estCompatible || employesDansSalle.length >= salle.max ? 'disabled' : ''}>
+                        ${!estCompatible ? 'Rôle incompatible' : (employesDansSalle.length >= salle.max ? 'Salle pleine' : 'Assigner')}
+                    </button>
+                </div>
+            `;
+        });
+    }
+    
+    modalHTML += `
+                        </div>
+                        <div class="employes-assignes">
+                            <h3>Employés dans la salle (${employesDansSalle.length}/${salle.max})</h3>
+    `;
+    
+    if (employesDansSalle.length === 0) {
+        modalHTML += '<p style="text-align: center; color: #666; padding: 20px;">Aucun employé assigné</p>';
+    } else {
+        employesDansSalle.forEach(emp => {
+            modalHTML += `
+                <div class="employe-item assigne">
+                    <img src="${emp.photo}" alt="${emp.nom}" onerror="this.src='${DEFAULT_PHOTO}'">
+                    <span>${emp.nom} - ${emp.role}</span>
+                    <button class="btn-retirer" onclick="retirerEmploye('${salleId}', ${dataEmploye.findIndex(e => e.id === emp.id)})">
+                        Retirer
+                    </button>
+                </div>
+            `;
+        });
+    }
+    
+    modalHTML += `
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+function fermerModalAssignation() {
+    const modal = document.getElementById('modalAssignation');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+function assignerEmploye(salleId, indexEmploye) {
+    const employe = dataEmploye[indexEmploye];
+    const salle = sallesConfig[salleId];
+    
+    if (employesAssignes[salleId].length < salle.max && salle.roles.includes(employe.role)) {
+        employesAssignes[salleId].push(employe);
+        fermerModalAssignation();
+        ouvrirModalAssignation(salleId);
+        updateAffichageSalles();
+        voirData();
+    }
+}
+
+function retirerEmploye(salleId, indexEmploye) {
+    const employe = dataEmploye[indexEmploye];
+    employesAssignes[salleId] = employesAssignes[salleId].filter(emp => emp.id !== employe.id);
+    fermerModalAssignation();
+    ouvrirModalAssignation(salleId);
+    updateAffichageSalles();
+    voirData();
+}
+
+function updateAffichageSalles() {
+    const salles = document.querySelectorAll('.salle');
+    
+    salles.forEach(salleElement => {
+        const salleId = salleElement.dataset.salle;
+        const salle = sallesConfig[salleId];
+        const employesDansSalle = employesAssignes[salleId];
+        const boutonAssigner = salleElement.querySelector('.btn-assigner');
+        const containerEmployes = salleElement.querySelector('.employes-salle');
+        
+        // Mettre à jour le bouton
+        boutonAssigner.textContent = `+ (${employesDansSalle.length}/${salle.max})`;
+        
+        // Mettre à jour la liste des employés dans la salle
+        containerEmployes.innerHTML = '';
+        
+        employesDansSalle.forEach(emp => {
+            const employeElement = document.createElement('div');
+            employeElement.className = 'employe-salle-item';
+            employeElement.innerHTML = `
+                <img src="${emp.photo}" alt="${emp.nom}" onerror="this.src='${DEFAULT_PHOTO}'">
+                <span>${emp.nom}</span>
+                <button onclick="retirerEmployeDirect('${salleId}', ${dataEmploye.findIndex(e => e.id === emp.id)})">×</button>
+            `;
+            containerEmployes.appendChild(employeElement);
+        });
+    });
+}
+
+function retirerEmployeDirect(salleId, indexEmploye) {
+    const employe = dataEmploye[indexEmploye];
+    employesAssignes[salleId] = employesAssignes[salleId].filter(emp => emp.id !== employe.id);
+    updateAffichageSalles();
+    voirData();
+}
