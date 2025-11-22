@@ -658,7 +658,6 @@ main{
     align-items: center;
     justify-content: center;
 }
-
 .experience-groupe {
     background: #f8f9fa;
     border-radius: 15px;
@@ -740,7 +739,18 @@ main{
     font-size: 14px;
 }
 
-@media (max-width: 767px) and (orientation: portrait) {
+.salle-vide {
+    border: 3px solid #f44336 !important;
+    box-shadow: 0 0 15px rgba(244, 67, 54, 0.5) !important;
+}
+
+.salle-vide .btn-assigner {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+
+@media (max-width: 767px) {
     body{
         flex-direction: column;
         height: auto;
@@ -829,19 +839,20 @@ main{
 }
 
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-    body{
-        flex-direction: row;
-    }
+@media (min-width: 768px) and (max-width: 1023px) {
     
     .container{
         width: 70%;
         height: 100vh;
+         
     }
     
     .side-bar{
         width: 30%;
         height: 100vh;
+       
+       
+        
     }
     
     .side-bar h1{
@@ -889,14 +900,13 @@ main{
     }
 }
 
-
 @media (min-width: 1024px) and (max-width: 1279px) {
     .container{
         height: 98vh;
     }
     
     .side-bar h1{
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .side-bar h2{
@@ -948,10 +958,7 @@ main{
 
 
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-    body {
-        flex-direction: row;
-    }
-    
+   
     .container{
         height: 98vh;
         width: 70%;
@@ -960,7 +967,7 @@ main{
     .side-bar{
         height: 98vh;
         width: 30%;
-        margin: 10px;
+        margin: 20px 0 20px 20px;
     }
     
     .side-bar h1{
