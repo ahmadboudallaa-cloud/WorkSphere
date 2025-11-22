@@ -1,4 +1,3 @@
-// Configuration des salles
 const sallesConfig = {
     'salle-conference': { 
         nom: 'Salle de conférence', 
@@ -32,10 +31,9 @@ const sallesConfig = {
     }
 };
 
-// Photo par défaut
 const DEFAULT_PHOTO = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlsFAzBV-hQgLpJydoIb3NfWraLprFKW0fA&s";
 
-// Données des employés
+
 let dataEmploye = [];
 let employesAssignes = {
     'salle-conference': [],
@@ -50,7 +48,7 @@ let mode = "create";
 let tempIndex;
 let experienceCount = 0;
 
-// Éléments DOM
+
 const ajouter = document.getElementById('Ajouter');
 const container2 = document.getElementById('container2');
 const close = document.getElementById('close');
@@ -65,38 +63,36 @@ const tel = document.getElementById('tel');
 const btnExperience = document.getElementById('ajouter_experience');
 const infoExperience = document.getElementById('info_experience');
 
-// Initialisation
+
 document.addEventListener('DOMContentLoaded', function() {
     initialiserApp();
 });
 
 function initialiserApp() {
-    // Événements pour les modals
+   
     ajouter.onclick = () => ouvrirModalAjout();
     close.onclick = () => fermerModalAjout();
     closex.onclick = () => fermerModalAjout();
     
-    // Événement pour l'ajout d'expérience
+   
     if (btnExperience && infoExperience) {
         btnExperience.addEventListener('click', ajouterExperience);
     }
     
-    // Prévisualisation de la photo
+   
     photo.addEventListener('input', function() {
         previewPhoto(this.value);
     });
     
-    // Initialiser les salles
+   
     initialiserSalles();
     
-    // Afficher les données
+   
     voirData();
     updateAffichageSalles();
 }
 
-// --------------------------------------------------------------------
-// GESTION DES EXPÉRIENCES
-// --------------------------------------------------------------------
+
 
 function ajouterExperience() {
     experienceCount++;
@@ -166,9 +162,7 @@ function clearExperiences() {
     experienceCount = 0;
 }
 
-// --------------------------------------------------------------------
-// GESTION DES MODALS
-// --------------------------------------------------------------------
+
 
 function ouvrirModalAjout() {
     container2.classList.add("show");
@@ -190,38 +184,36 @@ function previewPhoto(url) {
     }
 }
 
-// --------------------------------------------------------------------
-// VALIDATION
-// --------------------------------------------------------------------
+
 
 function validerFormulaire() {
-    // Validation du nom
+
     if (!nom.value.trim()) {
         alert("Veuillez entrer le nom complet");
         return false;
     }
     
-    // Validation du rôle
+   
     if (role.value === "null") {
         alert("Veuillez sélectionner un rôle");
         return false;
     }
     
-    // Validation de l'email
+ 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (mail.value && !emailRegex.test(mail.value)) {
         alert("Veuillez entrer un email valide");
         return false;
     }
     
-    // Validation du téléphone
+    
     const telRegex = /^[\+]?[0-9\s\-\(\)]{8,20}$/;
     if (tel.value && !telRegex.test(tel.value)) {
         alert("Veuillez entrer un numéro de téléphone valide");
         return false;
     }
     
-    // Validation des dates d'expérience
+  
     const groupesExperience = document.querySelectorAll('.experience-groupe');
     for (let groupe of groupesExperience) {
         const dateDeb = groupe.querySelector('.dateDeb').value;
@@ -240,9 +232,6 @@ function validerFormulaire() {
     return true;
 }
 
-// --------------------------------------------------------------------
-// GESTION DES EMPLOYÉS (CRUD)
-// --------------------------------------------------------------------
 
 enrgEmp.onclick = function() {
     if (!validerFormulaire()) return;
@@ -316,7 +305,6 @@ function deleteData(i) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet employé ?")) {
         const employeId = dataEmploye[i].id;
         
-        // Retirer l'employé de toutes les salles
         for (const salleId in employesAssignes) {
             employesAssignes[salleId] = employesAssignes[salleId].filter(emp => emp.id !== employeId);
         }
@@ -339,7 +327,7 @@ function editData(i) {
     mail.value = emp.mail;
     tel.value = emp.tel;
     
-    // Charger les expériences
+  
     clearExperiences();
     if (emp.experiences && emp.experiences.length > 0) {
         emp.experiences.forEach(exp => {
@@ -416,9 +404,6 @@ function showInfo(i) {
     container_3.classList.add("show");
 }
 
-// --------------------------------------------------------------------
-// GESTION DES SALLES ET ASSIGNATION
-// --------------------------------------------------------------------
 
 function initialiserSalles() {
     const boutonsAssigner = document.querySelectorAll('.btn-assigner');
@@ -540,10 +525,9 @@ function updateAffichageSalles() {
         const boutonAssigner = salleElement.querySelector('.btn-assigner');
         const containerEmployes = salleElement.querySelector('.employes-salle');
         
-        // Mettre à jour le bouton
         boutonAssigner.textContent = `+ (${employesDansSalle.length}/${salle.max})`;
         
-        // Mettre à jour la liste des employés dans la salle
+        
         containerEmployes.innerHTML = '';
         
         employesDansSalle.forEach(emp => {
