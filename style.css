@@ -317,6 +317,13 @@ main{
     align-items: center;
     justify-content: center;
 }
+.titre-card button{
+     background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #FCA311;
+    cursor: pointer;
+}
 
 .input_employe{
     text-align: left;
@@ -553,9 +560,10 @@ main{
     align-items: center;
     padding: 12px;
     margin: 8px 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background: white;
+    border:#e69500 3px solid;
+    border-radius: 20px;
+    background: #14213D;
+
 }
 
 .employe-item img{
@@ -569,7 +577,7 @@ main{
 .employe-item span{
     flex-grow: 1;
     font-size: 14px;
-    color: #333;
+    color: white;
 }
 
 .employe-item button{
@@ -584,7 +592,7 @@ main{
 
 .employe-item button:disabled{
     background: #ccc;
-    cursor: not-allowed;
+   
 }
 
 .employe-item button.btn-retirer{
@@ -592,7 +600,7 @@ main{
 }
 
 .employe-item.assigne{
-    background: #f0f8f0;
+    background:#14213D;
     border-color: #4CAF50;
 }
 
@@ -658,10 +666,9 @@ main{
     align-items: center;
     justify-content: center;
 }
-
 .experience-groupe {
     background: #f8f9fa;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 15px;
     margin-bottom: 15px;
     border: 2px solid #e0e0e0;
@@ -681,13 +688,10 @@ main{
 }
 
 .supprimer-experience {
-    background: #ff6b6b;
+    color: red;
     border: none;
-    color: white;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    font-size: 16px;
+    background:transparent;
+    font-size: 25px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -740,7 +744,18 @@ main{
     font-size: 14px;
 }
 
-@media (max-width: 767px) and (orientation: portrait) {
+.salle-vide {
+    border: 3px solid #f44336 !important;
+    box-shadow: 0 0 15px rgba(244, 67, 54, 0.5) !important;
+}
+
+.salle-vide .btn-assigner {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+
+@media (max-width: 767px) {
     body{
         flex-direction: column;
         height: auto;
@@ -829,19 +844,20 @@ main{
 }
 
 
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-    body{
-        flex-direction: row;
-    }
+@media (min-width: 768px) and (max-width: 1023px) {
     
     .container{
         width: 70%;
         height: 100vh;
+         
     }
     
     .side-bar{
         width: 30%;
         height: 100vh;
+       
+       
+        
     }
     
     .side-bar h1{
@@ -889,14 +905,13 @@ main{
     }
 }
 
-
 @media (min-width: 1024px) and (max-width: 1279px) {
     .container{
         height: 98vh;
     }
     
     .side-bar h1{
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .side-bar h2{
@@ -948,10 +963,7 @@ main{
 
 
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-    body {
-        flex-direction: row;
-    }
-    
+   
     .container{
         height: 98vh;
         width: 70%;
@@ -960,7 +972,7 @@ main{
     .side-bar{
         height: 98vh;
         width: 30%;
-        margin: 10px;
+        margin: 20px 0 20px 20px;
     }
     
     .side-bar h1{

@@ -33,7 +33,6 @@ const sallesConfig = {
 
 const DEFAULT_PHOTO = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlsFAzBV-hQgLpJydoIb3NfWraLprFKW0fA&s";
 
-
 let dataEmploye = [];
 let employesAssignes = {
     'salle-conference': [],
@@ -47,7 +46,6 @@ let employesAssignes = {
 let mode = "create";
 let tempIndex;
 let experienceCount = 0;
-
 
 const ajouter = document.getElementById('Ajouter');
 const container2 = document.getElementById('container2');
@@ -63,35 +61,28 @@ const tel = document.getElementById('tel');
 const btnExperience = document.getElementById('ajouter_experience');
 const infoExperience = document.getElementById('info_experience');
 
-
 document.addEventListener('DOMContentLoaded', function() {
     initialiserApp();
 });
 
 function initialiserApp() {
-   
     ajouter.onclick = () => ouvrirModalAjout();
     close.onclick = () => fermerModalAjout();
     closex.onclick = () => fermerModalAjout();
     
-   
     if (btnExperience && infoExperience) {
         btnExperience.addEventListener('click', ajouterExperience);
     }
     
-   
     photo.addEventListener('input', function() {
         previewPhoto(this.value);
     });
     
-   
     initialiserSalles();
     
-   
     voirData();
     updateAffichageSalles();
 }
-
 
 
 function ajouterExperience() {
@@ -125,7 +116,6 @@ function supprimerExperience(bouton) {
     experienceGroupe.remove();
     experienceCount--;
     
-    // Renuméroter les expériences restantes
     const tousLesGroupes = document.querySelectorAll('.experience-groupe');
     tousLesGroupes.forEach((groupe, index) => {
         const titre = groupe.querySelector('h3');
@@ -187,25 +177,21 @@ function previewPhoto(url) {
 
 
 function validerFormulaire() {
-
     if (!nom.value.trim()) {
         alert("Veuillez entrer le nom complet");
         return false;
     }
     
-   
     if (role.value === "null") {
         alert("Veuillez sélectionner un rôle");
         return false;
     }
     
- 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (mail.value && !emailRegex.test(mail.value)) {
         alert("Veuillez entrer un email valide");
         return false;
     }
-    
     
     const telRegex = /^[\+]?[0-9\s\-\(\)]{8,20}$/;
     if (tel.value && !telRegex.test(tel.value)) {
@@ -213,7 +199,6 @@ function validerFormulaire() {
         return false;
     }
     
-  
     const groupesExperience = document.querySelectorAll('.experience-groupe');
     for (let groupe of groupesExperience) {
         const dateDeb = groupe.querySelector('.dateDeb').value;
@@ -231,6 +216,7 @@ function validerFormulaire() {
     
     return true;
 }
+
 
 
 enrgEmp.onclick = function() {
@@ -327,7 +313,6 @@ function editData(i) {
     mail.value = emp.mail;
     tel.value = emp.tel;
     
-  
     clearExperiences();
     if (emp.experiences && emp.experiences.length > 0) {
         emp.experiences.forEach(exp => {
@@ -403,6 +388,7 @@ function showInfo(i) {
     container_3.innerHTML = card;
     container_3.classList.add("show");
 }
+
 
 
 function initialiserSalles() {
@@ -515,6 +501,23 @@ function retirerEmploye(salleId, indexEmploye) {
     voirData();
 }
 
+
+
+function verifierSallesObligatoires() {
+    const sallesObligatoires = ['reception', 'salle-serveurs', 'salle-securite', 'salle-archives'];
+    
+    sallesObligatoires.forEach(salleId => {
+        const salleElement = document.querySelector(`[data-salle="${salleId}"]`);
+        const employesDansSalle = employesAssignes[salleId];
+        
+        if (employesDansSalle.length === 0) {
+            salleElement.classList.add('salle-vide');
+        } else {
+            salleElement.classList.remove('salle-vide');
+        }
+    });
+}
+
 function updateAffichageSalles() {
     const salles = document.querySelectorAll('.salle');
     
@@ -526,7 +529,6 @@ function updateAffichageSalles() {
         const containerEmployes = salleElement.querySelector('.employes-salle');
         
         boutonAssigner.textContent = `+ (${employesDansSalle.length}/${salle.max})`;
-        
         
         containerEmployes.innerHTML = '';
         
@@ -541,6 +543,8 @@ function updateAffichageSalles() {
             containerEmployes.appendChild(employeElement);
         });
     });
+    
+    verifierSallesObligatoires();
 }
 
 function retirerEmployeDirect(salleId, indexEmploye) {
@@ -549,3 +553,6 @@ function retirerEmployeDirect(salleId, indexEmploye) {
     updateAffichageSalles();
     voirData();
 }
+
+
+setTimeout(verifierSallesObligatoires, 500);
